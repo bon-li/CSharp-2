@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Bonita_A2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bonita_A2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBox x:Name="movieNametb" HorizontalAlignment="Left" Height="35" Margin="262,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="166,104,0,0" TextWrapping="Wrap" Text="Movie Name:" VerticalAlignment="Top" Width="152"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="166,184,0,0" TextWrapping="Wrap" Text="Release Date:" VerticalAlignment="Top" Width="152"/>
+        <CalendarDatePicker x:Name="releaseDatePicker" Margin="262,174,0,0" VerticalAlignment="Top" Height="40" Width="203"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="192,268,0,0" TextWrapping="Wrap" Text="Location:" VerticalAlignment="Top" Width="152"/>
+        <ComboBox x:Name="locationSelection" Height="35" Margin="262,263,0,0" Width="203" ItemsSource="{x:Bind locations}"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="208,342,0,0" TextWrapping="Wrap" Text="Genre:" VerticalAlignment="Top" Width="152"/>
+        <ComboBox x:Name="genreSelection" Height="35" Margin="262,334,0,0" Width="203" ItemsSource="{x:Bind genres}"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="205,421,0,0" TextWrapping="Wrap" Text="Rating:" VerticalAlignment="Top" Width="152"/>
+        <ComboBox x:Name="ratingcb" Height="35" Margin="262,414,0,0" Width="203"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="123,497,0,0" TextWrapping="Wrap" Text="Duration in minutes:" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="durationtb" HorizontalAlignment="Left" Height="35" Margin="262,489,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" BeforeTextChanging="durationtb_BeforeTextChanging"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="215,567,0,0" TextWrapping="Wrap" Text="Price:" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="pricetb" HorizontalAlignment="Left" Height="35" Margin="262,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+
+        <ListView x:Name="moviesList" HorizontalAlignment="Left" Height="480" Margin="719,117,0,0" VerticalAlignment="Top" Width="714" Background="Pink" SelectionChanged="moviesList_SelectionChanged"/>
+
+        <Button Content="Save movie to list" Height="34" Margin="262,665,0,0" VerticalAlignment="Top" Width="203" Click="saveMovie"/>
+        <Button Content="Delete movie from list" Height="36" Margin="984,772,0,0" VerticalAlignment="Top" Width="184" Click="deleteMovie"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="56" Margin="84,834,0,0" TextWrapping="Wrap" Text="Search for movie by name:" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="searchMovie" HorizontalAlignment="Left" Height="35" Margin="262,826,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <Button Content="Search" Height="37" Margin="512,826,0,0" VerticalAlignment="Top" Width="93" Click="search" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Button.RenderTransform>
+                <CompositeTransform SkewY="-0.379" TranslateY="-0.493"/>
+            </Button.RenderTransform>
+        </Button>
+
+        <Button Content="Save To File" Height="34" Margin="798,660,0,0" VerticalAlignment="Top" Width="183" Click="saveData"/>
+        <Button Content="Load From File" Height="34" Margin="1160,665,0,0" VerticalAlignment="Top" Width="183" Click="getData"/>
+        <Button Content="Update Movie" Height="34" Margin="262,743,0,0" VerticalAlignment="Top" Width="203" Click="updateItem"/>
+
+
+    </Grid>
+</Page>
